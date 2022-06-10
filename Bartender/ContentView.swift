@@ -10,14 +10,28 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var loadingState = LoadingState.loading
+    @State private var searchFor = SearchType.name
+    @State private var searchText = ""
     
     enum LoadingState {
         case loading, loaded, failed
     }
     
+    enum SearchType {
+        case name, ingredient
+    }
+    
     var body: some View {
         NavigationView {
+            
             Section {
+                Picker("Units: ", selection: $searchFor) {
+                    Text("Name").tag(SearchType.name)
+                    Text("Ingredient").tag(SearchType.ingredient)
+                }
+                .padding(10)
+                .pickerStyle(SegmentedPickerStyle())
+                
                 switch loadingState {
                 case .loading:
                     List {
@@ -26,10 +40,11 @@ struct ContentView: View {
                 case .loaded:
                     ProgressView()
                 case .failed:
-                    Text("No drinks available")
+                    Text("Use search")
                 }
             }
-            .navigationTitle("Bartender")
+            .searchable(text: $searchText, prompt: "Search for ingredient")
+            .navigationTitle("Bartender 🍸")
         }
     }
 }
