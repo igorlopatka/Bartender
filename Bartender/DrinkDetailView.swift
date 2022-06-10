@@ -12,12 +12,15 @@ struct DrinkDetailView: View {
     let drink: Drink
     
     var body: some View {
-        Text(drink.strDrink)
+        VStack {
+            AsyncImage(url: URL(string: drink.strDrinkThumb)) { image in
+                image.resizable()
+            } placeholder: {
+                Color.white
+            }
+            Text(drink.strDrink)
+                .font(.title)
+        }
     }
 }
 
-//struct DrinkDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DrinkDetailView(drink: <#Drink#>)
-//    }
-//}

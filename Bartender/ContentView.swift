@@ -48,7 +48,18 @@ struct ContentView: View {
                             NavigationLink {
                                 DrinkDetailView(drink: drink)
                             } label: {
-                                Text(drink.strDrink)
+                                HStack {
+                                    AsyncImage(url: URL(string: drink.strDrinkThumb)) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(width: 50, height: 50)
+                                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                                    Text(drink.strDrink)
+                                        .font(.title)
+                                        .lineLimit(1)
+                                }
                             }
                         }
                     }
