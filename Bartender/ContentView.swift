@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var drinks = [Drink]()
     @State private var loadingState = LoadingState.empty
     @State private var searchFor = SearchType.name
     @State private var searchText = ""
@@ -32,7 +33,6 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            
             Section {
                 Picker("Units: ", selection: $searchFor) {
                     Text("Name").tag(SearchType.name)
@@ -44,7 +44,13 @@ struct ContentView: View {
                 switch loadingState {
                 case .loaded:
                     List {
-                        
+                        ForEach(drinks, id: \.self) { drink in
+                            NavigationLink {
+                                DrinkDetailView(drink: drink)
+                            } label: {
+                                Text(drink.strDrink)
+                            }
+                        }
                     }
                 case .loading:
                     ProgressView()
@@ -57,6 +63,37 @@ struct ContentView: View {
             }
             .searchable(text: $searchText, prompt: "Search for \(searchType)")
             .navigationTitle("Bartender 🍸")
+        }
+        .onChange(of: searchText) { newValue in
+            Task {
+                await fetchDrinkList(search: newValue)
+            }
+        }
+    }
+
+    func fetchDrinkList(search: String) async {
+        
+        let urlString: String
+        
+        switch searchFor {
+        case .name:
+            urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(search)"
+        case .ingredient:
+            urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=\(search)"
+        }
+        
+        guard let url = URL(string: urlString) else {
+            print("Bad URL: \(urlString)")
+            return
+        }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let items = try JSONDecoder().decode(Drinks.self, from: data)
+            drinks = items.drinks
+            loadingState = .loaded
+        } catch {
+            loadingState = .failed
+            print("Error fetching drinks: \(error)")
         }
     }
 }

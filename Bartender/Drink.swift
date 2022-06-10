@@ -14,5 +14,5 @@ struct Drinks: Codable {
 struct Drink: Codable, Hashable {
     let strDrink: String
     let strDrinkThumb: String
-    let idDrink: Int
+    let idDrink: String
 }
