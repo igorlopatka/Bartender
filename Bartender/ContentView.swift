@@ -9,16 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var loadingState = LoadingState.loading
+    @State private var loadingState = LoadingState.empty
     @State private var searchFor = SearchType.name
     @State private var searchText = ""
     
     enum LoadingState {
-        case loading, loaded, failed
+        case loading, loaded, failed, empty
     }
     
     enum SearchType {
         case name, ingredient
+    }
+    
+    var searchType: String {
+        switch searchFor {
+        case .name:
+            return "name"
+        case .ingredient:
+            return "ingredient"
+        }
     }
     
     var body: some View {
@@ -31,19 +40,22 @@ struct ContentView: View {
                 }
                 .padding(10)
                 .pickerStyle(SegmentedPickerStyle())
-                
+                Spacer()
                 switch loadingState {
-                case .loading:
+                case .loaded:
                     List {
                         
                     }
-                case .loaded:
+                case .loading:
                     ProgressView()
                 case .failed:
-                    Text("Use search")
+                    Text("Failed to load drinks")
+                case .empty:
+                    Text("Use searchbar to find drinks")
                 }
+                Spacer()
             }
-            .searchable(text: $searchText, prompt: "Search for ingredient")
+            .searchable(text: $searchText, prompt: "Search for \(searchType)")
             .navigationTitle("Bartender 🍸")
         }
     }
