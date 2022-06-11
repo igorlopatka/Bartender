@@ -80,6 +80,11 @@ struct ContentView: View {
                 await fetchDrinkList(search: newValue)
             }
         }
+        .onChange(of: searchFor) { _ in
+            Task {
+                await fetchDrinkList(search: searchText)
+            }
+        }
     }
 
     func fetchDrinkList(search: String) async {
