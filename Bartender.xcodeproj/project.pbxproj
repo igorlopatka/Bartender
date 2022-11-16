@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4500F78F2925627200219B7A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4500F78E2925627200219B7A /* Drink.swift */; };
 		4520FDBA2922A69F009D8DD6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4520FDB92922A69F009D8DD6 /* RxCocoa */; };
 		4520FDBC2922A69F009D8DD6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4520FDBB2922A69F009D8DD6 /* RxSwift */; };
 		45C6A455291AB02D00B0B836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A454291AB02D00B0B836 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4500F78E2925627200219B7A /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		45C6A451291AB02D00B0B836 /* Bartender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bartender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C6A454291AB02D00B0B836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45C6A456291AB02D00B0B836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4500F78D2925626800219B7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4500F78E2925627200219B7A /* Drink.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		45C6A448291AB02D00B0B836 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 				45C6A454291AB02D00B0B836 /* AppDelegate.swift */,
 				45C6A456291AB02D00B0B836 /* SceneDelegate.swift */,
 				45C6A458291AB02D00B0B836 /* ViewController.swift */,
+				4500F78D2925626800219B7A /* Model */,
 				45C6A45D291AB02E00B0B836 /* Assets.xcassets */,
 				45C6A45F291AB02E00B0B836 /* LaunchScreen.storyboard */,
 				45C6A462291AB02E00B0B836 /* Info.plist */,
@@ -267,6 +278,7 @@
 			files = (
 				45C6A459291AB02D00B0B836 /* ViewController.swift in Sources */,
 				45C6A455291AB02D00B0B836 /* AppDelegate.swift in Sources */,
+				4500F78F2925627200219B7A /* Drink.swift in Sources */,
 				45C6A457291AB02D00B0B836 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
