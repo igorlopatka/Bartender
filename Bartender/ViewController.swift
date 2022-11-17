@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        fetchDrinkList(search: "vodka")
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,7 +58,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         if text != "" {
-            fetchDrinkList(search: text)
+            DispatchQueue.main.async {
+                self.fetchDrinkList(search: text)
+            }
         }
     }
     
