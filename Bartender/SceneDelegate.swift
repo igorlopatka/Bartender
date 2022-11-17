@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func initViewController () -> UIViewController {
-        let vc = ViewController()
+        let vc = DrinkListViewController()
         vc.title = "Bartender"
         return vc
     }

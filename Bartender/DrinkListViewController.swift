@@ -7,16 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class DrinkListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
     var drinks: [Drink] = []
     
-    var searchType: SearchFor = .name
-    
-    var filteredData: [String]!
-    
     private var tableView: UITableView!
     private var search: UISearchController!
+    private var segmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +34,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         search.searchBar.placeholder = "What do you have in your bar?"
         search.obscuresBackgroundDuringPresentation = true
         
+        
+        segmentedControl = UISegmentedControl(items: SearchFor.allValues())
+        segmentedControl.sizeToFit()
+        segmentedControl.selectedSegmentIndex = 0
+        
+        navigationItem.titleView = segmentedControl
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -61,25 +62,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let text = searchController.searchBar.text else { return }
         if text != "" {
             DispatchQueue.main.async {
-                self.fetchDrinkList(search: text)
+                self.fetchFilteredList(search: text)
             }
         }
     }
     
     // TheCoctailsDB API
     
-    func fetchDrinkList(search: String)  {
+    func fetchFilteredList(search: String)  {
         
-        let urlString: String
+        var urlString = ""
         
-        switch  searchType {
-        case .name:
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(search)"
-        case .ingredient:
+        case 1:
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=\(search)"
+        default:
+            break
         }
-        
-        
         
         let url = URL(string: urlString)!
         let session = URLSession.shared
