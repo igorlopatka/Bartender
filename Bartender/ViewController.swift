@@ -11,6 +11,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var drinks: [Drink] = []
     
+    var searchType: SearchFor = .name
+    
     var filteredData: [String]!
     
     private var tableView: UITableView!
@@ -70,12 +72,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let urlString: String
         
-        //        switch searchFor {
-        //        case .name:
-        urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(search)"
-        //        case .ingredient:
-        //            urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=\(search)"
-        //        }
+        switch  searchType {
+        case .name:
+            urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(search)"
+        case .ingredient:
+            urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=\(search)"
+        }
         
         
         
