@@ -29,9 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func initViewController () -> UIViewController {
-        let returnTo = ViewController()
-        returnTo.title = "Bartender"
-        return returnTo
+        let vc = ViewController()
+        vc.title = "Bartender"
+        return vc
     }
     
     private func navigationBarConfiguration (_ controller: UINavigationController) {
