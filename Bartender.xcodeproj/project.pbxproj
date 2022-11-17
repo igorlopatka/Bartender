@@ -115,9 +115,10 @@
 			children = (
 				45C6A454291AB02D00B0B836 /* AppDelegate.swift */,
 				45C6A456291AB02D00B0B836 /* SceneDelegate.swift */,
-				45C6A458291AB02D00B0B836 /* DrinkListViewController.swift */,
-				45FFAC2C2926AE4D00293E21 /* SearchFor.swift */,
 				4500F78D2925626800219B7A /* Model */,
+				45FFAC2E2926C29C00293E21 /* View */,
+				45FFAC2F2926C2DE00293E21 /* ViewModel */,
+				45FFAC302926C2F600293E21 /* Helper */,
 				45C6A45D291AB02E00B0B836 /* Assets.xcassets */,
 				45C6A45F291AB02E00B0B836 /* LaunchScreen.storyboard */,
 				45C6A462291AB02E00B0B836 /* Info.plist */,
@@ -140,6 +141,29 @@
 				45C6A477291AB02E00B0B836 /* BartenderUITestsLaunchTests.swift */,
 			);
 			path = BartenderUITests;
+			sourceTree = "<group>";
+		};
+		45FFAC2E2926C29C00293E21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45C6A458291AB02D00B0B836 /* DrinkListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45FFAC2F2926C2DE00293E21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45FFAC302926C2F600293E21 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				45FFAC2C2926AE4D00293E21 /* SearchFor.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
