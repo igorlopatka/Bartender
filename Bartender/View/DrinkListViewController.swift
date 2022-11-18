@@ -14,6 +14,7 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     private var tableView: UITableView!
     private var search: UISearchController!
     private var segmentedControl: UISegmentedControl!
+    private var activityView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +35,15 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
         search.searchBar.placeholder = "What do you have in your bar?"
         search.obscuresBackgroundDuringPresentation = true
         
-        
         segmentedControl = UISegmentedControl(items: SearchFor.allValues())
         segmentedControl.sizeToFit()
         segmentedControl.selectedSegmentIndex = 0
+        
+        activityView = UIActivityIndicatorView(style: .large)
+        activityView.center = self.view.center
+        activityView.isHidden = true
+        activityView.hidesWhenStopped = true
+        self.view.addSubview(activityView)
         
         navigationItem.titleView = segmentedControl
         navigationItem.searchController = search
@@ -58,6 +64,15 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    func showActivityIndicator() {
+        activityView.isHidden = false
+        activityView.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityView.stopAnimating()
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         if text != "" {
@@ -70,7 +85,7 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     // TheCoctailsDB API
     
     func fetchFilteredList(search: String)  {
-        
+                
         var urlString = ""
         
         switch segmentedControl.selectedSegmentIndex {
