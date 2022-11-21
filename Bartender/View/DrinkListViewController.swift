@@ -16,6 +16,15 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     private var segmentedControl: UISegmentedControl!
     private var activityView: UIActivityIndicatorView!
     
+    var isSearchBarEmpty: Bool {
+      return search.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+      return search.isActive && !isSearchBarEmpty
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,9 +40,10 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
         search.searchBar.barStyle = .default
         search.searchBar.placeholder = "What do you have in your bar?"
-        search.obscuresBackgroundDuringPresentation = true
+        definesPresentationContext = true
         
         segmentedControl = UISegmentedControl(items: SearchFor.allValues())
         segmentedControl.sizeToFit()
@@ -51,7 +61,9 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Num: \(indexPath.row)")
+        let vc = DrinkDetailsViewController()
+        vc.drinkTitle = drinks[indexPath.row].strDrink
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,7 +125,6 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
                 let response = try decoder.decode(Drinks.self, from: data)
                 drinks = response.drinks
                 self.tableView.reloadData()
-                
             } catch {
                 print(error)
             }

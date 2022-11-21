@@ -9,8 +9,9 @@ import UIKit
 
 class DrinkDetailsViewController: UIViewController {
     
-    override func viewDidLoad() {
-        
-    }
+    var drinkTitle = ""
     
+    override func viewDidLoad() {
+        self.title = drinkTitle
+    }
 }
