@@ -63,6 +63,7 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DrinkDetailsViewController()
         vc.drinkTitle = drinks[indexPath.row].strDrink
+        vc.drinkID = drinks[indexPath.row].idDrink
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -121,7 +122,6 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             do {
                 let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let response = try decoder.decode(Drinks.self, from: data)
                 drinks = response.drinks
                 self.tableView.reloadData()
