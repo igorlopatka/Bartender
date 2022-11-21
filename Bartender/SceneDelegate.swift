@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         controller.navigationBar.prefersLargeTitles = true
         controller.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         controller.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        controller.navigationBar.tintColor = .white
+        controller.navigationBar.tintColor = .secondaryLabel
         controller.navigationBar.backgroundColor = .systemBackground
         
         if #available(iOS 13.0, *) {

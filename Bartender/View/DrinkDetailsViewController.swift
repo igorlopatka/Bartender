@@ -13,5 +13,6 @@ class DrinkDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         self.title = drinkTitle
+        self.view.backgroundColor = .white
     }
 }
