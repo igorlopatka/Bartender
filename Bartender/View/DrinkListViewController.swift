@@ -24,7 +24,6 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
       return search.isActive && !isSearchBarEmpty
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +59,8 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     
+    // MARK: - TableView
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DrinkDetailsViewController()
         vc.drinkTitle = drinks[indexPath.row].strDrink
@@ -73,9 +74,24 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(drinks[indexPath.row].strDrink)"
+        
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = "\(self.drinks[indexPath.row].strDrink)"
+        content.secondaryText? = "\(self.drinks[indexPath.row].idDrink)"
+//        content.image = UIImage(systemName: "star")
+        
+        cell.contentConfiguration = content
+//        DispatchQueue.main.async {
+//            cell.textLabel!.text = "\(self.drinks[indexPath.row].strDrink)"
+//            cell.detailTextLabel?.text = "\(self.drinks[indexPath.row].idDrink)"
+//            cell.imageView!.image = UIImage(systemName: "star")
+//        }
+        
         return cell
     }
+    
+    //MARK: - Activity Indicator
     
     func showActivityIndicator() {
         activityView.isHidden = false
@@ -88,17 +104,17 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        if text != "" {
+        if isFiltering {
             DispatchQueue.main.async {
                 self.fetchFilteredList(search: text)
             }
-        }
+        } 
     }
     
-    // TheCoctailsDB API
+    //MARK: - TheCoctailsDB API
     
     func fetchFilteredList(search: String)  {
-                
+        
         var urlString = ""
         
         switch segmentedControl.selectedSegmentIndex {
@@ -130,6 +146,7 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         })
         task.resume()
+        tableView.reloadData()
     }
 }
 
