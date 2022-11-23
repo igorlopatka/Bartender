@@ -138,7 +138,6 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(Drinks.self, from: data)
                 drinks = response.drinks
-                self.tableView.reloadData()
             } catch {
                 print(error)
             }
