@@ -5,6 +5,7 @@
 //  Created by Igor Łopatka on 08/11/2022.
 //
 
+import Kingfisher
 import UIKit
 
 class DrinkListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
@@ -75,19 +76,16 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
         
-        var content = cell.defaultContentConfiguration()
+//        var content = cell.defaultContentConfiguration()
+//        content.text = "\(self.drinks[indexPath.row].strDrink)"
+//        content.image. kf.setImage(with: URL(string: self.drinks[indexPath.row].strDrinkThumb)
+//        cell.contentConfiguration = content
         
-        content.text = "\(self.drinks[indexPath.row].strDrink)"
-        content.secondaryText? = "\(self.drinks[indexPath.row].idDrink)"
-//        content.image = UIImage(systemName: "star")
-        
-        cell.contentConfiguration = content
-//        DispatchQueue.main.async {
-//            cell.textLabel!.text = "\(self.drinks[indexPath.row].strDrink)"
-//            cell.detailTextLabel?.text = "\(self.drinks[indexPath.row].idDrink)"
-//            cell.imageView!.image = UIImage(systemName: "star")
-//        }
-        
+        DispatchQueue.main.async {
+            cell.textLabel!.text = "\(self.drinks[indexPath.row].strDrink)"
+            cell.imageView?.kf.indicatorType = .activity
+            cell.imageView?.kf.setImage(with: URL(string: self.drinks[indexPath.row].strDrinkThumb))
+        }
         return cell
     }
     

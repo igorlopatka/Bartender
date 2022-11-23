@@ -11,6 +11,7 @@
 		4520FDBA2922A69F009D8DD6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4520FDB92922A69F009D8DD6 /* RxCocoa */; };
 		4520FDBC2922A69F009D8DD6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4520FDBB2922A69F009D8DD6 /* RxSwift */; };
 		4532F47329277E3000E279F9 /* DrinkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532F47229277E3000E279F9 /* DrinkDetailsViewController.swift */; };
+		45705F2D292E936C00792F5D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 45705F2C292E936C00792F5D /* Kingfisher */; };
 		45C6A455291AB02D00B0B836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A454291AB02D00B0B836 /* AppDelegate.swift */; };
 		45C6A457291AB02D00B0B836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A456291AB02D00B0B836 /* SceneDelegate.swift */; };
 		45C6A459291AB02D00B0B836 /* DrinkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A458291AB02D00B0B836 /* DrinkListViewController.swift */; };
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45705F2D292E936C00792F5D /* Kingfisher in Frameworks */,
 				4520FDBC2922A69F009D8DD6 /* RxSwift in Frameworks */,
 				4520FDBA2922A69F009D8DD6 /* RxCocoa in Frameworks */,
 			);
@@ -188,6 +190,7 @@
 			packageProductDependencies = (
 				4520FDB92922A69F009D8DD6 /* RxCocoa */,
 				4520FDBB2922A69F009D8DD6 /* RxSwift */,
+				45705F2C292E936C00792F5D /* Kingfisher */,
 			);
 			productName = Bartender;
 			productReference = 45C6A451291AB02D00B0B836 /* Bartender.app */;
@@ -263,6 +266,7 @@
 			mainGroup = 45C6A448291AB02D00B0B836;
 			packageReferences = (
 				4520FDB82922A69F009D8DD6 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				45705F2B292E936C00792F5D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 45C6A452291AB02D00B0B836 /* Products */;
 			projectDirPath = "";
@@ -653,6 +657,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		45705F2B292E936C00792F5D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -665,6 +677,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4520FDB82922A69F009D8DD6 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		45705F2C292E936C00792F5D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45705F2B292E936C00792F5D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
