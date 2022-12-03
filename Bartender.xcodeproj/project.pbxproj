@@ -12,6 +12,9 @@
 		4520FDBC2922A69F009D8DD6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4520FDBB2922A69F009D8DD6 /* RxSwift */; };
 		4532F47329277E3000E279F9 /* DrinkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532F47229277E3000E279F9 /* DrinkDetailsViewController.swift */; };
 		45705F2D292E936C00792F5D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 45705F2C292E936C00792F5D /* Kingfisher */; };
+		45B199892930B6E700CCDEE0 /* DrinkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B199882930B6E600CCDEE0 /* DrinkListViewModel.swift */; };
+		45B1998B2930B8EF00CCDEE0 /* DrinkDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1998A2930B8EF00CCDEE0 /* DrinkDetailsViewModel.swift */; };
+		45B1998D2930B94900CCDEE0 /* TheCocktailsDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B1998C2930B94900CCDEE0 /* TheCocktailsDBService.swift */; };
 		45C6A455291AB02D00B0B836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A454291AB02D00B0B836 /* AppDelegate.swift */; };
 		45C6A457291AB02D00B0B836 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A456291AB02D00B0B836 /* SceneDelegate.swift */; };
 		45C6A459291AB02D00B0B836 /* DrinkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A458291AB02D00B0B836 /* DrinkListViewController.swift */; };
@@ -43,6 +46,9 @@
 /* Begin PBXFileReference section */
 		4500F78E2925627200219B7A /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		4532F47229277E3000E279F9 /* DrinkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsViewController.swift; sourceTree = "<group>"; };
+		45B199882930B6E600CCDEE0 /* DrinkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkListViewModel.swift; sourceTree = "<group>"; };
+		45B1998A2930B8EF00CCDEE0 /* DrinkDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsViewModel.swift; sourceTree = "<group>"; };
+		45B1998C2930B94900CCDEE0 /* TheCocktailsDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCocktailsDBService.swift; sourceTree = "<group>"; };
 		45C6A451291AB02D00B0B836 /* Bartender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bartender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C6A454291AB02D00B0B836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45C6A456291AB02D00B0B836 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +100,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		45B199922930C37F00CCDEE0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				45B1998C2930B94900CCDEE0 /* TheCocktailsDBService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		45C6A448291AB02D00B0B836 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +136,7 @@
 				4500F78D2925626800219B7A /* Model */,
 				45FFAC2E2926C29C00293E21 /* View */,
 				45FFAC2F2926C2DE00293E21 /* ViewModel */,
+				45B199922930C37F00CCDEE0 /* Service */,
 				45FFAC302926C2F600293E21 /* Helper */,
 				45C6A45D291AB02E00B0B836 /* Assets.xcassets */,
 				45C6A45F291AB02E00B0B836 /* LaunchScreen.storyboard */,
@@ -159,6 +174,8 @@
 		45FFAC2F2926C2DE00293E21 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				45B199882930B6E600CCDEE0 /* DrinkListViewModel.swift */,
+				45B1998A2930B8EF00CCDEE0 /* DrinkDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -310,11 +327,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B1998B2930B8EF00CCDEE0 /* DrinkDetailsViewModel.swift in Sources */,
 				4532F47329277E3000E279F9 /* DrinkDetailsViewController.swift in Sources */,
 				45C6A459291AB02D00B0B836 /* DrinkListViewController.swift in Sources */,
 				45FFAC2D2926AE4D00293E21 /* SearchFor.swift in Sources */,
+				45B199892930B6E700CCDEE0 /* DrinkListViewModel.swift in Sources */,
 				45C6A455291AB02D00B0B836 /* AppDelegate.swift in Sources */,
 				4500F78F2925627200219B7A /* Drink.swift in Sources */,
+				45B1998D2930B94900CCDEE0 /* TheCocktailsDBService.swift in Sources */,
 				45C6A457291AB02D00B0B836 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
