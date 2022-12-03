@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4500F78F2925627200219B7A /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4500F78E2925627200219B7A /* Drink.swift */; };
-		4520FDBA2922A69F009D8DD6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4520FDB92922A69F009D8DD6 /* RxCocoa */; };
-		4520FDBC2922A69F009D8DD6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4520FDBB2922A69F009D8DD6 /* RxSwift */; };
 		4532F47329277E3000E279F9 /* DrinkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532F47229277E3000E279F9 /* DrinkDetailsViewController.swift */; };
 		45705F2D292E936C00792F5D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 45705F2C292E936C00792F5D /* Kingfisher */; };
 		45B199892930B6E700CCDEE0 /* DrinkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B199882930B6E600CCDEE0 /* DrinkListViewModel.swift */; };
@@ -23,6 +21,7 @@
 		45C6A46C291AB02E00B0B836 /* BartenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A46B291AB02E00B0B836 /* BartenderTests.swift */; };
 		45C6A476291AB02E00B0B836 /* BartenderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A475291AB02E00B0B836 /* BartenderUITests.swift */; };
 		45C6A478291AB02E00B0B836 /* BartenderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6A477291AB02E00B0B836 /* BartenderUITestsLaunchTests.swift */; };
+		45E00B2D293BC2A7005DE811 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E00B2C293BC2A7005DE811 /* TestData.swift */; };
 		45FFAC2D2926AE4D00293E21 /* SearchFor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FFAC2C2926AE4D00293E21 /* SearchFor.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +60,7 @@
 		45C6A471291AB02E00B0B836 /* BartenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BartenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C6A475291AB02E00B0B836 /* BartenderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderUITests.swift; sourceTree = "<group>"; };
 		45C6A477291AB02E00B0B836 /* BartenderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartenderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		45E00B2C293BC2A7005DE811 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		45FFAC2C2926AE4D00293E21 /* SearchFor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,8 +70,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45705F2D292E936C00792F5D /* Kingfisher in Frameworks */,
-				4520FDBC2922A69F009D8DD6 /* RxSwift in Frameworks */,
-				4520FDBA2922A69F009D8DD6 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				45C6A46B291AB02E00B0B836 /* BartenderTests.swift */,
+				45E00B2C293BC2A7005DE811 /* TestData.swift */,
 			);
 			path = BartenderTests;
 			sourceTree = "<group>";
@@ -205,8 +204,6 @@
 			);
 			name = Bartender;
 			packageProductDependencies = (
-				4520FDB92922A69F009D8DD6 /* RxCocoa */,
-				4520FDBB2922A69F009D8DD6 /* RxSwift */,
 				45705F2C292E936C00792F5D /* Kingfisher */,
 			);
 			productName = Bartender;
@@ -282,7 +279,6 @@
 			);
 			mainGroup = 45C6A448291AB02D00B0B836;
 			packageReferences = (
-				4520FDB82922A69F009D8DD6 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				45705F2B292E936C00792F5D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 45C6A452291AB02D00B0B836 /* Products */;
@@ -344,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45C6A46C291AB02E00B0B836 /* BartenderTests.swift in Sources */,
+				45E00B2D293BC2A7005DE811 /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,14 +666,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4520FDB82922A69F009D8DD6 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
 		45705F2B292E936C00792F5D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -688,16 +677,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4520FDB92922A69F009D8DD6 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4520FDB82922A69F009D8DD6 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		4520FDBB2922A69F009D8DD6 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4520FDB82922A69F009D8DD6 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
 		45705F2C292E936C00792F5D /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 45705F2B292E936C00792F5D /* XCRemoteSwiftPackageReference "Kingfisher" */;
