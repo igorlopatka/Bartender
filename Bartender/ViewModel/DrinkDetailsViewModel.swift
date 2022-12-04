@@ -9,9 +9,9 @@ import Foundation
 
 class DrinkDetailsViewModel {
     
-    let service: Servicing
+    let service: Service
     
-    init(service: Servicing) {
+    init(service: Service) {
         self.service = service
     }
     

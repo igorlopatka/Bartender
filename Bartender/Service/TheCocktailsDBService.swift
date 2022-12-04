@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol Servicing {
+protocol Service {
     func fetchFilteredList(type: String, search: String, completed: @escaping (Result<[Drink], Error>) -> Void)
     func fetchDrinkDetails(id: String, completed: @escaping (Result<Drink, Error>) -> Void)
 }
 
-class TheCocktailsDBService: Servicing {
+class TheCocktailsDBService: Service {
     
     let baseURL = "https://www.thecocktaildb.com/api/json/v1/1/"
     
