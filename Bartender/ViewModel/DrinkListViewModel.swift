@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 
-class DrinkListViewModel {
+class DrinkListViewModel: ObservableObject {
     
     let service: Service
     
@@ -17,10 +17,10 @@ class DrinkListViewModel {
         self.service = service
     }
     
-    var drinks: [Drink] = []
+    @Published var drinks: [Drink] = []
+    @Published var search = ""
+    @Published var searchType: SearchFor = .ingredient
     
-    var search = ""
-    var searchType: SearchFor = .ingredient
     var searchTypeURL: String {
         switch searchType {
         case .name:

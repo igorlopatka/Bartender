@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DrinkDetailsViewModel {
+class DrinkDetailsViewModel: ObservableObject {
     
     let service: Service
     
@@ -15,8 +15,8 @@ class DrinkDetailsViewModel {
         self.service = service
     }
     
-    var drinkID = ""
-    var drinkTitle = ""
-    var drinkWithDetails: Drink?
+    @Published var drinkID = ""
+    @Published var drinkTitle = ""
+    @Published var drinkWithDetails: Drink?
     
 }
