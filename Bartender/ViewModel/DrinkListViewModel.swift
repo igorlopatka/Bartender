@@ -24,9 +24,17 @@ class DrinkListViewModel: ObservableObject {
     var searchTypeURL: String {
         switch searchType {
         case .name:
-            return "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(search)"
+            return "search.php?s="
         case .ingredient:
-            return "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=\(search)"
+            return "filter.php?i="
         }
     }
+    
+    func fetchDrinksList() {
+        service.fetchFilteredList(type: searchTypeURL, search: search) { result in
+            self.drinks = result
+        }
+    }
+    
+    
 }

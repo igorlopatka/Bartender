@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Service {
-    func fetchFilteredList(type: String, search: String, completed: @escaping (Result<[Drink], Error>) -> Void)
+    func fetchFilteredList(type: String, search: String, completed: @escaping ([Drink]) -> Void)
     func fetchDrinkDetails(id: String, completed: @escaping (Result<Drink, Error>) -> Void)
 }
 
@@ -16,9 +16,9 @@ class TheCocktailsDBService: Service {
     
     let baseURL = "https://www.thecocktaildb.com/api/json/v1/1/"
     
-    func fetchFilteredList(type: String, search: String, completed: @escaping (Result<[Drink], Error>) -> Void)  {
+    func fetchFilteredList(type: String, search: String, completed: @escaping ([Drink]) -> Void)  {
         
-        let endPoint = baseURL + "\(type).php?s=\(search)"
+        let endPoint = baseURL + "\(type)=\(search)"
         let url = URL(string: endPoint)!
         let session = URLSession.shared
         let request = URLRequest(url: url)
@@ -32,7 +32,7 @@ class TheCocktailsDBService: Service {
             do {
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(Drinks.self, from: data)
-                completed(.success(response.drinks))
+                completed(response.drinks)
             } catch {
                 print(error)
             }
