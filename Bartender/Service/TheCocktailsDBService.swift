@@ -9,7 +9,7 @@ import Foundation
 
 protocol Service {
     func fetchFilteredList(type: String, search: String, completed: @escaping ([Drink]) -> Void)
-    func fetchDrinkDetails(id: String, completed: @escaping (Result<Drink, Error>) -> Void)
+    func fetchDrinkDetails(id: String, completed: @escaping (Drink) -> Void)
 }
 
 class TheCocktailsDBService: Service {
