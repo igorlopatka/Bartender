@@ -41,7 +41,7 @@ class TheCocktailsDBService: Service {
     }
     
     
-    func fetchDrinkDetails(id: String, completed: @escaping (Result<Drink, Error>) -> Void) {
+    func fetchDrinkDetails(id: String, completed: @escaping (Drink) -> Void) {
                 
         let endPoint = baseURL + "lookup.php?i=\(id)"
         
@@ -59,7 +59,7 @@ class TheCocktailsDBService: Service {
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(Drinks.self, from: data)
                 let drinkWithDetails = response.drinks[0]
-                completed(.success(drinkWithDetails))
+                completed(drinkWithDetails)
             } catch {
                 print(error)
             }
