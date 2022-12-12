@@ -17,6 +17,15 @@ class DrinkDetailsViewModel: ObservableObject {
         self.service = service
     }
     
-    @Published var drinkID = ""
-    @Published var drinkTitle = ""
+    @Published private(set) var drinkID = ""
+    @Published private(set) var drinkTitle = ""
+    @Published private(set) var drinkCategory = ""
+    @Published private(set) var drinkImageURL = ""
+    
+    func config() {
+        drinkID = drink.idDrink
+        drinkTitle = drink.strDrink
+        drinkCategory = drink.strCategory
+        drinkImageURL = drink.strDrinkThumb
+    }
 }
