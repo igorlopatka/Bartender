@@ -17,9 +17,9 @@ class DrinkListViewModel: ObservableObject {
         self.service = service
     }
     
-    @Published var drinks: [Drink] = []
-    @Published var search = ""
-    @Published var searchType: SearchFor = .ingredient
+    @Published private(set) var drinks: [Drink] = []
+    @Published private(set) var search = ""
+    @Published private(set) var searchType: SearchFor = .ingredient
     
     var searchTypeURL: String {
         switch searchType {
@@ -35,6 +35,4 @@ class DrinkListViewModel: ObservableObject {
             self.drinks = result
         }
     }
-    
-    
 }

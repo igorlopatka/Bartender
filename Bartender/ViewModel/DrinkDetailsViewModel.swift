@@ -10,11 +10,9 @@ import Foundation
 class DrinkDetailsViewModel: ObservableObject {
     
     let drink: Drink
-    let service: Service
     
-    init(drink: Drink, service: Service) {
+    init(drink: Drink) {
         self.drink = drink
-        self.service = service
     }
     
     @Published private(set) var drinkID = ""
