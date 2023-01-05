@@ -5,6 +5,7 @@
 //  Created by Igor Łopatka on 08/11/2022.
 //
 
+import Combine
 import Kingfisher
 import UIKit
 
@@ -17,11 +18,11 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     private var segmentedControl: UISegmentedControl!
     private var activityView: UIActivityIndicatorView!
     
-    var isSearchBarEmpty: Bool {
+    private var isSearchBarEmpty: Bool {
       return search.searchBar.text?.isEmpty ?? true
     }
     
-    var isFiltering: Bool {
+    private var isFiltering: Bool {
       return search.isActive && !isSearchBarEmpty
     }
 
@@ -76,16 +77,10 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
         
-//        var content = cell.defaultContentConfiguration()
-//        content.text = "\(self.drinks[indexPath.row].strDrink)"
-//        content.image. kf.setImage(with: URL(string: self.drinks[indexPath.row].strDrinkThumb)
-//        cell.contentConfiguration = content
+        cell.textLabel!.text = "\(self.drinks[indexPath.row].strDrink)"
+        cell.imageView?.kf.indicatorType = .activity
+        cell.imageView?.kf.setImage(with: URL(string: self.drinks[indexPath.row].strDrinkThumb))
         
-        DispatchQueue.main.async {
-            cell.textLabel!.text = "\(self.drinks[indexPath.row].strDrink)"
-            cell.imageView?.kf.indicatorType = .activity
-            cell.imageView?.kf.setImage(with: URL(string: self.drinks[indexPath.row].strDrinkThumb))
-        }
         return cell
     }
     

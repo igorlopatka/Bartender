@@ -5,6 +5,7 @@
 //  Created by Igor Łopatka on 18/11/2022.
 //
 
+import Combine
 import UIKit
 
 class DrinkDetailsViewController: UIViewController {
@@ -16,13 +17,11 @@ class DrinkDetailsViewController: UIViewController {
     override func viewDidLoad() {
         self.title = drinkTitle
         self.view.backgroundColor = .white
-        DispatchQueue.main.async {
-            self.fetchDrinkDetails(id: self.drinkID)
-        }
+        self.fetchDrinkDetails(id: self.drinkID)
     }
     
     func fetchDrinkDetails(id: String)  {
-                
+        
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=\(id)"
         
         let url = URL(string: urlString)!

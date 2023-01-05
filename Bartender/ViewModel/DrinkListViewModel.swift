@@ -5,9 +5,8 @@
 //  Created by Igor Łopatka on 25/11/2022.
 //
 
+import Combine
 import Foundation
-import RxSwift
-
 
 class DrinkListViewModel: ObservableObject {
     
