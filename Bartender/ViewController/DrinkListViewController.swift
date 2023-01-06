@@ -103,43 +103,6 @@ class DrinkListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         } 
     }
-    
-    //MARK: - TheCoctailsDB API
-    
-    func fetchFilteredList(search: String)  {
-        
-        var urlString = ""
-        
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(search)"
-        case 1:
-            urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=\(search)"
-        default:
-            break
-        }
-        
-        let url = URL(string: urlString)!
-        let session = URLSession.shared
-        let request = URLRequest(url: url)
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { [self] data, response, error in
-            guard error == nil else {
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Drinks.self, from: data)
-                drinks = response.drinks
-            } catch {
-                print(error)
-            }
-        })
-        task.resume()
-        tableView.reloadData()
-    }
 }
 
 

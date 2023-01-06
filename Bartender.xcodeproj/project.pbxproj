@@ -132,7 +132,7 @@
 				45C6A454291AB02D00B0B836 /* AppDelegate.swift */,
 				45C6A456291AB02D00B0B836 /* SceneDelegate.swift */,
 				4500F78D2925626800219B7A /* Model */,
-				45FFAC2E2926C29C00293E21 /* View */,
+				45FFAC2E2926C29C00293E21 /* ViewController */,
 				45FFAC2F2926C2DE00293E21 /* ViewModel */,
 				45B199922930C37F00CCDEE0 /* Service */,
 				45FFAC302926C2F600293E21 /* Helper */,
@@ -161,13 +161,13 @@
 			path = BartenderUITests;
 			sourceTree = "<group>";
 		};
-		45FFAC2E2926C29C00293E21 /* View */ = {
+		45FFAC2E2926C29C00293E21 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				45C6A458291AB02D00B0B836 /* DrinkListViewController.swift */,
 				4532F47229277E3000E279F9 /* DrinkDetailsViewController.swift */,
 			);
-			path = View;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		45FFAC2F2926C2DE00293E21 /* ViewModel */ = {
