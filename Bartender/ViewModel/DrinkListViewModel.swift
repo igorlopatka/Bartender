@@ -15,11 +15,11 @@ class DrinkListViewModel: ObservableObject {
     init(service: Service) {
         self.service = service
     }
-    
+  
     @Published private(set) var drinks: [Drink] = []
-    @Published private(set) var search = ""
-    @Published private(set) var searchType: SearchFor = .ingredient
-    
+    @Published var searchType: SearchFor = .ingredient
+    @Published var search = ""
+
     var searchTypeURL: String {
         switch searchType {
         case .name:
